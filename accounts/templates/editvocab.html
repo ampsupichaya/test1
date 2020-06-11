@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>vocabs</h1>
+    <ul>
+            <form action="editvocab/{{i.id}}/" method="POST">{% csrf_token %}
+                <input type="hidden" id="id" name="id" value="{{ i.id }}">
+                <h1>ชื่อคำศัพท์</h1>
+                <input type="text" id="vocab_name" name="vocab_name" value="{{ i.vocab_name }}">
+                <input type="text" id="vocab_detail" name="vocab_detail" value="{{ i.vocab_detail}}"">
+                <input type="submit" value="submit">
+            </form>
+    </ul>
+{% endblock %}

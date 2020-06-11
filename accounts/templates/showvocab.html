@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>คำศัพท์ทั้งหมด</h1>
+    
+    {% for i in all_vocab %}
+        <!-- {{i.vocab_name}}
+            <a href="/editvocab/{{ i.id }}/">Edit</a>
+            <a href="/deletevocab/{{ i.id }}/">delete</a>
+            <form action="/deletevocab/{{i.id}}/" method="POST">{% csrf_token %}
+                <input type="submit" Value="delete">
+            </form> -->
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>{{i.vocab_name}}</label>
+                    <a href="/editvocab/{{ i.id }}/" role="button" class="btn btn-primary" aria-pressed="true">Edit</a>
+                    <a href="/deletevocab/{{ i.id }}/" role="button" class="btn btn-danger" aria-pressed="true">Delete</a>
+                </div>
+            </form>
+    {% endfor %}
+
+{% endblock %}
